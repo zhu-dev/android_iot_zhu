@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_color"
+    tools:context=".homePage.SmartHomeActivity">
+
+    <FrameLayout
+        android:fitsSystemWindows="true"
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <RadioGroup
+        android:id="@+id/radio_group_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:gravity="bottom"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <RadioButton
+            android:id="@+id/bot_nav_device"
+            style="@style/custom_radio_btn_style"
+            android:drawableTop="@drawable/selector_radio_drawable_homepage"
+            android:text="首页" />
+
+        <RadioButton
+            android:id="@+id/bot_nav_rooms"
+            style="@style/custom_radio_btn_style"
+            android:drawableTop="@drawable/selector_radio_drawable_rooms"
+            android:text="房间" />
+
+        <View style="@style/custom_radio_voice_icon" />
+
+        <RadioButton
+            android:id="@+id/bot_nav_scenes"
+            style="@style/custom_radio_btn_style"
+            android:drawableTop="@drawable/selector_radio_drawable_scenes"
+            android:text="场景" />
+
+        <RadioButton
+            android:id="@+id/bot_nav_about_me"
+            style="@style/custom_radio_btn_style"
+            android:drawableTop="@drawable/selector_radio_drawable_about_me"
+            android:text="我的" />
+
+    </RadioGroup>
+
+    <ImageButton
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:id="@+id/ib_voice_btn"
+        android:background="@drawable/bg_radio_voice_sign"
+        android:src="@mipmap/ic_voice_sign"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

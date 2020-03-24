@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">Huaweiot</string>
+    <string name="base_toolbar_title">标题</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home_picture">home picture</string>
+    <string name="device_id">418fe43b-f7ac-474b-891a-d883d5252312</string>
+    <string name="service_id">my_home</string>
+    <string name="app_id">WHkdwPLjoWB7iFCOX_X_c65AUtka</string>
+    <string name="coap_ip_port">49.4.85.232:5683</string>
+    <string name="https_ip_port">49.4.93.24:8943</string>
+    <string name="house_device_info">房间设备列表</string>
+    <string name="parlor_light_info">客厅电灯</string>
+    <string name="str_status_off">关</string>
+    <string name="str_status_on">开</string>
+    <string name="str_edit_btn_info">编辑</string>
+    <string name="str_parlor_air_condition_info">客厅空调</string>
+    <string name="show_the_air_condition_image">show the air condition image</string>
+    <string name="str_chinese_temperature">温度</string>
+    <string name="str_chinese_set_temperature">请设置温度</string>
+    <string name="str_sign_temperature">℃</string>
+    <string name="str_parlor_air_condition_mode">模式</string>
+    <string name="str_parlor_air_condition_speed">风速</string>
+    <string name="str_parlor_light">客厅灯光</string>
+    <string name="str_sign_Humidity">%RH</string>
+    <string name="str_bedroom_light">卧室灯光</string>
+    <string name="str_bedroom_curtain">卧室窗帘</string>
+    <string name="str_bathroom_light">浴室灯光</string>
+    <string name="str_kitchen_light">厨房灯光</string>
+    <string name="str_balcony_light">阳台灯光</string>
+    <string name="str_scene_light_on">灯光全开</string>
+    <string name="str_scene_light_off">灯光全关</string>
+    <string name="str_scene_leave_home">离家模式</string>
+    <string name="str_scene_back_home">回家模式</string>
+    <string name="str_scene_entertainment">娱乐模式</string>
+    <string name="str_kitchen_fan">厨房抽风机</string>
+</resources>

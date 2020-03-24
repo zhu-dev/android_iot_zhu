@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/btn_group"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <RadioButton
+        android:id="@+id/btn_1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@drawable/selector_multi_btn"
+        android:button="@null"
+        android:gravity="center"
+        android:textColor="@color/white_color"
+        android:textSize="12sp" />
+
+    <View
+        android:layout_width="0.5dp"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF" />
+
+    <RadioButton
+        android:id="@+id/btn_2"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@drawable/selector_multi_btn"
+        android:button="@null"
+        android:gravity="center"
+        android:textColor="@color/white_color"
+        android:textSize="12sp" />
+
+    <View
+        android:layout_width="0.5dp"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF" />
+
+    <RadioButton
+        android:id="@+id/btn_3"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@drawable/selector_multi_btn"
+        android:button="@null"
+        android:gravity="center"
+        android:textColor="@color/white_color"
+        android:textSize="12sp" />
+
+    <View
+        android:layout_width="0.5dp"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF" />
+
+    <RadioButton
+        android:id="@+id/btn_4"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@drawable/selector_multi_btn"
+        android:button="@null"
+        android:gravity="center"
+        android:textColor="@color/white_color"
+        android:textSize="12sp" />
+
+</RadioGroup>

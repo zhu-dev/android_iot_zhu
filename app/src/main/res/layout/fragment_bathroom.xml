@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_gray">
+
+
+    <include
+        layout="@layout/layout_toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_balcony_picture"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:background="@drawable/bg_rectangle_radius"
+        android:contentDescription="@string/home_picture"
+        android:scaleType="fitXY"
+        android:src="@drawable/home_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/base_toolbar" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cd_parlor_room_info"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/bg_top_radius"
+        app:cardCornerRadius="15dp"
+        app:layout_constraintBottom_toTopOf="@id/btn_house_device_edit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_balcony_picture">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp">
+
+            <TextView
+                android:id="@+id/tv_info_temperature"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:text="室温："
+                android:textColor="@color/gray41"
+                android:textSize="14sp"
+                app:layout_constraintHeight_default="percent"
+                app:layout_constraintHeight_percent="0.3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_info_humidity"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:text="湿度："
+                android:textColor="@color/gray41"
+                android:textSize="14sp"
+                app:layout_constraintHeight_default="percent"
+                app:layout_constraintHeight_percent="0.3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_info_temperature" />
+
+            <TextView
+                android:id="@+id/tv_info_smoke"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:text="烟雾浓度："
+                android:textColor="@color/gray41"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHeight_default="percent"
+                app:layout_constraintHeight_percent="0.3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_info_humidity" />
+
+
+            <TextView
+                android:id="@+id/tv_info_temperature_value"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:text="@string/str_sign_temperature"
+                android:textColor="@color/gray41"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_default="percent"
+                app:layout_constraintHeight_percent="0.3"
+                app:layout_constraintStart_toEndOf="@id/tv_info_temperature"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_info_humidity_value"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:text="@string/str_sign_Humidity"
+                android:textColor="@color/gray41"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_default="percent"
+                app:layout_constraintHeight_percent="0.3"
+                app:layout_constraintStart_toEndOf="@id/tv_info_temperature"
+                app:layout_constraintTop_toBottomOf="@id/tv_info_temperature" />
+
+            <TextView
+                android:id="@+id/tv_info_smoke_value"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:text="ml/m3"
+                android:textColor="@color/gray41"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_default="percent"
+                app:layout_constraintHeight_percent="0.3"
+                app:layout_constraintStart_toEndOf="@id/tv_info_temperature"
+                app:layout_constraintTop_toBottomOf="@id/tv_info_humidity" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tv_house_device_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:text="@string/house_device_info"
+        android:textColor="@color/Black"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@id/btn_house_device_edit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btn_house_device_edit" />
+
+    <Button
+        android:id="@+id/btn_house_device_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="28dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/bg_selecter_btn"
+        android:text="@string/str_edit_btn_info"
+        android:textColor="@color/OrangeRed1_color"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cd_parlor_room_info" />
+
+    <LinearLayout
+        android:id="@+id/linea_1"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/bg_bottom_line"
+        android:gravity="center_vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_house_device_edit">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="2dp"
+            android:background="@color/DodgerBlue"
+            android:contentDescription="@string/show_the_air_condition_image"
+            android:src="@drawable/ic_light" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="@string/str_bathroom_light"
+            android:textColor="@color/Black" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/sw_bathroom_light"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="200dp"
+            android:thumb="@drawable/switch_custom_thumb_selector"
+            app:track="@drawable/switch_custom_track_selector" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linea_2"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/bg_bottom_line"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linea_1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="暗"
+            android:textColor="@color/gray41"
+            android:textSize="16sp" />
+
+
+        <com.example.huaweiot.view.CustomProgress
+            android:id="@+id/progress_bathroom_light"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="亮"
+            android:textColor="@color/gray41"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/Gainsboro_color"
+    tools:context=".homePage.devicePage.DeviceFragment">
+
+    <include
+        layout="@layout/layout_toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/device_content_picture"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:background="@drawable/bg_rectangle_radius"
+        android:contentDescription="@string/home_picture"
+        android:scaleType="fitXY"
+        android:src="@drawable/home_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/base_toolbar" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/huawei_cloud"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/bg_rectangle_radius"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/device_content_picture">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/device_content_info"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_margin="15dp">
+
+            <TextView
+                android:id="@+id/tv_app_name_key"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:text="应用名称"
+                android:textSize="@dimen/tinyTextSize"
+                app:layout_constraintBottom_toTopOf="@id/tv_app_id_key"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="spread"
+                app:layout_constraintVertical_weight="1"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent="0.2" />
+
+            <TextView
+                android:id="@+id/tv_app_name_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="iot_smartHome_dev_zhu"
+                android:textSize="@dimen/tinyTextSize"
+                app:layout_constraintStart_toEndOf="@+id/tv_app_name_key"
+                app:layout_constraintTop_toTopOf="@id/tv_app_name_key"
+                app:layout_constraintBottom_toBottomOf="@id/tv_app_name_key"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent="0.8" />
+
+            <TextView
+                android:id="@+id/tv_app_id_key"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:text="应用ID："
+                android:textSize="@dimen/tinyTextSize"
+                app:layout_constraintBottom_toTopOf="@id/tv_device_id_key"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_app_name_key"
+                app:layout_constraintVertical_weight="1"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent="0.2" />
+
+            <TextView
+                android:id="@+id/tv_app_id_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/app_id"
+                android:textSize="@dimen/tinyTextSize"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_app_id_key"
+                app:layout_constraintStart_toEndOf="@+id/tv_app_id_key"
+                app:layout_constraintTop_toTopOf="@+id/tv_app_id_key"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent="0.8" />
+
+            <TextView
+                android:id="@+id/tv_device_id_key"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:text="设备ID："
+                android:textSize="@dimen/tinyTextSize"
+                app:layout_constraintBottom_toTopOf="@id/tv_service_id_key"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_app_id_key"
+                app:layout_constraintVertical_weight="1"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent="0.2" />
+
+            <TextView
+                android:id="@+id/tv_device_id_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/device_id"
+                android:textSize="@dimen/tinyTextSize"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_device_id_key"
+                app:layout_constraintStart_toEndOf="@+id/tv_device_id_key"
+                app:layout_constraintTop_toTopOf="@+id/tv_device_id_key"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent="0.8" />
+
+            <TextView
+                android:id="@+id/tv_service_id_key"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:text="服务ID："
+                android:textSize="@dimen/tinyTextSize"
+                app:layout_constraintBottom_toTopOf="@id/tv_coap_ip_key"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_device_id_key"
+                app:layout_constraintVertical_weight="1"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent="0.2" />
+
+            <TextView
+                android:id="@+id/tv_service_id_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/service_id"
+                android:textSize="@dimen/tinyTextSize"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_service_id_key"
+                app:layout_constraintStart_toEndOf="@+id/tv_service_id_key"
+                app:layout_constraintTop_toTopOf="@+id/tv_service_id_key"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent="0.8" />
+
+            <TextView
+                android:id="@+id/tv_coap_ip_key"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:text="CoAP"
+                android:textSize="@dimen/tinyTextSize"
+                app:layout_constraintBottom_toTopOf="@id/tv_https_ip_key"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_service_id_key"
+                app:layout_constraintVertical_weight="1"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent="0.2" />
+
+            <TextView
+                android:id="@+id/tv_coap_ip_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/coap_ip_port"
+                android:textSize="@dimen/tinyTextSize"
+                app:layout_constraintBottom_toBottomOf="@id/tv_coap_ip_key"
+                app:layout_constraintStart_toEndOf="@+id/tv_coap_ip_key"
+                app:layout_constraintTop_toTopOf="@+id/tv_coap_ip_key"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent="0.8" />
+
+
+            <TextView
+                android:id="@+id/tv_https_ip_key"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:text="HTTPS"
+                android:textSize="@dimen/tinyTextSize"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_coap_ip_key"
+                app:layout_constraintVertical_weight="1"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent="0.2" />
+
+            <TextView
+                android:id="@+id/tv_https_ip_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/https_ip_port"
+                android:textSize="@dimen/tinyTextSize"
+                app:layout_constraintBottom_toBottomOf="@id/tv_https_ip_key"
+                app:layout_constraintStart_toEndOf="@+id/tv_https_ip_key"
+                app:layout_constraintTop_toTopOf="@+id/tv_https_ip_key"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent="0.8" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/appliaction_server_info"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/bg_rectangle_radius"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/huawei_cloud">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/server_content_info"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_margin="15dp">
+
+            <TextView
+                android:id="@+id/tv_project_name_key"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:text="工程名称"
+                android:textSize="@dimen/tinyTextSize"
+                app:layout_constraintBottom_toTopOf="@id/tv_server_ip_key"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="spread"
+                app:layout_constraintVertical_weight="1"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent="0.2" />
+
+            <TextView
+                android:id="@+id/tv_project_name_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="flask_iot_application"
+                android:textSize="@dimen/tinyTextSize"
+                app:layout_constraintStart_toEndOf="@+id/tv_project_name_key"
+                app:layout_constraintTop_toTopOf="@id/tv_project_name_key"
+                app:layout_constraintBottom_toBottomOf="@id/tv_project_name_key"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent="0.8" />
+
+            <TextView
+                android:id="@+id/tv_server_ip_key"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:text="服务器IP："
+                android:textSize="@dimen/tinyTextSize"
+                app:layout_constraintBottom_toTopOf="@id/tv_server_port_key"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_project_name_key"
+                app:layout_constraintVertical_weight="1"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent="0.2" />
+
+            <TextView
+                android:id="@+id/tv_server_ip_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="121.36.66.216"
+                android:textSize="@dimen/tinyTextSize"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_server_ip_key"
+                app:layout_constraintStart_toEndOf="@+id/tv_server_ip_key"
+                app:layout_constraintTop_toTopOf="@+id/tv_server_ip_key"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent="0.8" />
+
+            <TextView
+                android:id="@+id/tv_server_port_key"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:text="入口端口："
+                android:textSize="@dimen/tinyTextSize"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_server_ip_key"
+                app:layout_constraintVertical_weight="1"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent="0.2" />
+
+            <TextView
+                android:id="@+id/tv_server_port_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="80(nginx代理)"
+                android:textSize="@dimen/tinyTextSize"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_server_port_key"
+                app:layout_constraintStart_toEndOf="@+id/tv_server_port_key"
+                app:layout_constraintTop_toTopOf="@+id/tv_server_port_key"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent="0.8" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
