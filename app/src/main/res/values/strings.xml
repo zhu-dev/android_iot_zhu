@@ -1,11 +1,11 @@
 <resources>
-    <string name="app_name">Huaweiot</string>
+    <string name="app_name">智能家居移动终端</string>
     <string name="base_toolbar_title">标题</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="home_picture">home picture</string>
-    <string name="device_id">418fe43b-f7ac-474b-891a-d883d5252312</string>
+    <string name="device_id">32287445-12bd-4596-871f-cf7dc343cdf0</string>
     <string name="service_id">my_home</string>
     <string name="app_id">WHkdwPLjoWB7iFCOX_X_c65AUtka</string>
     <string name="coap_ip_port">49.4.85.232:5683</string>
@@ -35,4 +35,5 @@
     <string name="str_scene_back_home">回家模式</string>
     <string name="str_scene_entertainment">娱乐模式</string>
     <string name="str_kitchen_fan">厨房抽风机</string>
+    <string name="app_neme_value">iot_smartHome_dev_zhu</string>
 </resources>

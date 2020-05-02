@@ -66,7 +66,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="iot_smartHome_dev_zhu"
+                android:text="@string/app_neme_value"
                 android:textSize="@dimen/tinyTextSize"
                 app:layout_constraintStart_toEndOf="@+id/tv_app_name_key"
                 app:layout_constraintTop_toTopOf="@id/tv_app_name_key"

@@ -14,7 +14,7 @@ public interface SmartHomeContract {
 
     interface Presenter extends BasePresenter {
 
-        void getData(); //获取数据，是否分块数据,分开接口
+        void getData(String arg); //获取数据，是否分块数据,分开接口
 
         void postCommand(String method, Map<String, String> paras); //下发命令，是否要分开下发
     }

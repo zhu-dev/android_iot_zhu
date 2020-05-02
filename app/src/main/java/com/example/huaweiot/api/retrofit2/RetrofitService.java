@@ -9,11 +9,12 @@ import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 public interface RetrofitService {
 
     @GET("/home_data")
-    Observable<HomeData> getHomeData();
+    Observable<HomeData> getHomeData(@Query("room") String room);
 
     @POST("/commands")
     @Headers("Content-Type:application/json")

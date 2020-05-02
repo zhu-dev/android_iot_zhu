@@ -29,8 +29,8 @@ public class SmartHomePresenter implements SmartHomeContract.Presenter {
 
     @SuppressLint("CheckResult")
     @Override
-    public void getData() {
-        RetrofitManager.getInstance().getHomeData()
+    public void getData(String arg) {
+        RetrofitManager.getInstance().getHomeData(arg)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(homeData -> {

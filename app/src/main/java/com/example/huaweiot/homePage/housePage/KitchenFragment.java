@@ -70,9 +70,15 @@ public class KitchenFragment extends BaseFragment implements SmartHomeContract.V
             if (!sw_bathroomfan_isOpen){
                 sw_bathroomfan_isOpen = true;
                 //开启风扇
+                Map<String, String> paras = new HashMap<>();
+                paras.put("fan", "O");
+                mPresenter.postCommand("fanning", paras);
             }else {
                 sw_bathroomfan_isOpen = false;
                 //关闭风扇
+                Map<String, String> paras = new HashMap<>();
+                paras.put("fan", "C");
+                mPresenter.postCommand("fanning", paras);
             }
         });
         swKitchenLight.setOnCheckedChangeListener((buttonView, isChecked) -> {
@@ -80,13 +86,13 @@ public class KitchenFragment extends BaseFragment implements SmartHomeContract.V
             if (!sw_kitchenLight_isOpen){
                 sw_kitchenLight_isOpen = true;
                 Map<String, String> paras = new HashMap<>();
-                paras.put("kitchen_light", "O");
-                mPresenter.postCommand("lighting", paras);
+                paras.put("open", "O");
+                mPresenter.postCommand("lighting_kitchen", paras);
             }else {
                 sw_kitchenLight_isOpen = false;
                 Map<String, String> paras = new HashMap<>();
-                paras.put("kitchen_light", "C");
-                mPresenter.postCommand("lighting", paras);
+                paras.put("open", "C");
+                mPresenter.postCommand("lighting_kitchen", paras);
             }
         });
         swBathroomLight.setOnCheckedChangeListener((buttonView, isChecked) -> {
@@ -114,7 +120,7 @@ public class KitchenFragment extends BaseFragment implements SmartHomeContract.V
         RxTimerUtil.interval(7000, new RxTimerUtil.IRxNext() {
             @Override
             public void doNext(long number) {
-                mPresenter.getData();
+                mPresenter.getData("kitchen");
             }
         });
     }
@@ -122,7 +128,7 @@ public class KitchenFragment extends BaseFragment implements SmartHomeContract.V
     @Override
     public void onResume() {
         super.onResume();
-        mPresenter.getData();
+        mPresenter.getData("kitchen");
     }
 
     @Override

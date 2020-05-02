@@ -79,14 +79,14 @@ public class BedroomFragment extends BaseFragment implements SmartHomeContract.V
                 Toast.makeText(getActivity(), "开启卧室灯光", Toast.LENGTH_SHORT).show();
                 sw_bedroomLight_isOpen = true;
                 Map<String, String> paras = new HashMap<>();
-                paras.put("bedroom_light", "O");
-                mPresenter.postCommand("lighting", paras);
+                paras.put("open", "O");
+                mPresenter.postCommand("lighting_bedroom", paras);
             }else {
                 Toast.makeText(getActivity(), "关闭卧室灯光", Toast.LENGTH_SHORT).show();
                 sw_bedroomLight_isOpen = false;
                 Map<String, String> paras = new HashMap<>();
-                paras.put("bedroom_light", "C");
-                mPresenter.postCommand("lighting", paras);
+                paras.put("open", "C");
+                mPresenter.postCommand("lighting_bedroom", paras);
             }
         });
         swBedroomCurtain.setOnCheckedChangeListener((buttonView, isChecked) -> {
@@ -126,7 +126,7 @@ public class BedroomFragment extends BaseFragment implements SmartHomeContract.V
         RxTimerUtil.interval(7000, new RxTimerUtil.IRxNext() {
             @Override
             public void doNext(long number) {
-                mPresenter.getData();
+                mPresenter.getData("bedroom");
             }
         });
     }
@@ -134,7 +134,7 @@ public class BedroomFragment extends BaseFragment implements SmartHomeContract.V
     @Override
     public void onResume() {
         super.onResume();
-        mPresenter.getData();
+        mPresenter.getData("bedroom");
     }
 
     @Override
@@ -146,6 +146,7 @@ public class BedroomFragment extends BaseFragment implements SmartHomeContract.V
     @Override
     public void showData(HomeData homeData) {
         if (homeData !=null){
+            Log.d(TAG, "showData: "+homeData.getData().getTemperature());
             tvInfoTemperatureValue.setText(homeData.getData().getTemperature()+" ℃");
             tvInfoHumidityValue.setText(homeData.getData().getHumidity()+" %RH");
             tvInfoSmokeValue.setText(homeData.getData().getSmoke()+" ml/m3");
