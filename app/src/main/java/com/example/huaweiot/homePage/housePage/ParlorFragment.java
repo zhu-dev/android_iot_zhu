@@ -150,7 +150,7 @@ public class ParlorFragment extends BaseFragment implements SmartHomeContract.Vi
 
         swParlorAirCondition.setOnCheckedChangeListener((buttonView, isChecked) -> {
             Log.i(TAG, "onCheckedChanged: sw_air_condition->" + isChecked);
-            if (!sw_airCondition_isOpen) {
+            if (isChecked) {
                 sw_airCondition_isOpen = true;
                 Toast.makeText(getActivity(), "打开客厅空调", Toast.LENGTH_SHORT).show();
                 Map<String, String> paras = new HashMap<>();
@@ -237,6 +237,11 @@ public class ParlorFragment extends BaseFragment implements SmartHomeContract.Vi
 
     @OnClick(R.id.btn_house_device_edit)
     public void onViewClicked() {
+        if (!etSetTemperature.getText().toString().equals("")) {
+            temperatureInput = etSetTemperature.getText().toString();
+        }
+
+
         Log.i(TAG, "onViewClicked: btn_click_callback");
         if (sw_airCondition_isOpen){
             Map<String, String> paras = new HashMap<>();
@@ -245,6 +250,16 @@ public class ParlorFragment extends BaseFragment implements SmartHomeContract.Vi
             paras.put("temperature", temperatureInput);
             paras.put("wind_speed", air_condition_speed_paras.get(speed_index-1));
             mPresenter.postCommand("aircondition", paras);
+        }else{
+            if (sw_airCondition_isOpen){
+
+                Map<String, String> paras = new HashMap<>();
+                paras.put("open", "C");
+                paras.put("mode", air_condition_modes_paras.get(mode_index-1));
+                paras.put("temperature", temperatureInput);
+                paras.put("wind_speed", air_condition_speed_paras.get(speed_index-1));
+                mPresenter.postCommand("aircondition", paras);
+            }
         }
     }
 
