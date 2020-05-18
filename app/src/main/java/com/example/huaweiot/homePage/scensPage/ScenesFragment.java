@@ -1,4 +1,4 @@
-package com.example.huaweiot.homePage.housePage;
+package com.example.huaweiot.homePage.scensPage;
 
 import android.os.Bundle;
 import android.util.Log;

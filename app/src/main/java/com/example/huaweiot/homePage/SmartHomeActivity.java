@@ -1,7 +1,6 @@
 package com.example.huaweiot.homePage;
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
@@ -24,13 +23,12 @@ import com.example.huaweiot.base.BaseActivity;
 import com.example.huaweiot.homePage.devicePage.DeviceFragment;
 import com.example.huaweiot.homePage.housePage.ParlorFragment;
 import com.example.huaweiot.homePage.housePage.RoomContainerFragment;
-import com.example.huaweiot.homePage.housePage.ScenesFragment;
+import com.example.huaweiot.homePage.scensPage.ScenesFragment;
 import com.example.huaweiot.homePage.settingPage.SettingFragment;
 
 import com.example.huaweiot.utils.JsonParser;
 import com.iflytek.cloud.ErrorCode;
 import com.iflytek.cloud.InitListener;
-import com.iflytek.cloud.RecognizerListener;
 import com.iflytek.cloud.RecognizerResult;
 import com.iflytek.cloud.SpeechConstant;
 import com.iflytek.cloud.SpeechError;
@@ -154,7 +152,6 @@ public class SmartHomeActivity extends BaseActivity implements SmartHomeContract
      */
     @Override
     protected void initData() {
-
         //装载房间fragment
         mFragmentSparseArray = new SparseArray<>();
         deviceFragment = new DeviceFragment();
@@ -162,9 +159,7 @@ public class SmartHomeActivity extends BaseActivity implements SmartHomeContract
         containerFragment = new RoomContainerFragment();
         scenesFragment = new ScenesFragment();
         settingFragment = new SettingFragment();
-
         //拉取设备数据
-
     }
 
     /**

@@ -3,12 +3,8 @@ package com.example.huaweiot.homePage.housePage;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.TextView;
-
-import androidx.annotation.Nullable;
-import androidx.appcompat.widget.SwitchCompat;
-import androidx.appcompat.widget.Toolbar;
+import android.widget.Toast;
 
 import com.example.huaweiot.R;
 import com.example.huaweiot.api.Beans.HomeData;
@@ -20,7 +16,11 @@ import com.example.huaweiot.utils.RxTimerUtil;
 import java.util.HashMap;
 import java.util.Map;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SwitchCompat;
+import androidx.appcompat.widget.Toolbar;
 import butterknife.BindView;
+import butterknife.OnClick;
 
 public class KitchenFragment extends BaseFragment implements SmartHomeContract.View {
 
@@ -67,40 +67,71 @@ public class KitchenFragment extends BaseFragment implements SmartHomeContract.V
 
         swKitchenFan.setOnCheckedChangeListener((buttonView, isChecked) -> {
             Log.i(TAG, "onCheckedChanged: swKitchenFan-->" + isChecked);
-            if (!sw_bathroomfan_isOpen){
+            if (isChecked) {
+                btnHouseDeviceEdit.setText("关闭");
                 sw_bathroomfan_isOpen = true;
                 //开启风扇
                 Map<String, String> paras = new HashMap<>();
                 paras.put("fan", "O");
                 mPresenter.postCommand("fanning", paras);
-            }else {
+            } else {
+                btnHouseDeviceEdit.setText("打开");
                 sw_bathroomfan_isOpen = false;
                 //关闭风扇
                 Map<String, String> paras = new HashMap<>();
                 paras.put("fan", "C");
                 mPresenter.postCommand("fanning", paras);
             }
+
+//            if (!sw_bathroomfan_isOpen){
+//                sw_bathroomfan_isOpen = true;
+//                //开启风扇
+//                Map<String, String> paras = new HashMap<>();
+//                paras.put("fan", "O");
+//                mPresenter.postCommand("fanning", paras);
+//            }else {
+//                sw_bathroomfan_isOpen = false;
+//                //关闭风扇
+//                Map<String, String> paras = new HashMap<>();
+//                paras.put("fan", "C");
+//                mPresenter.postCommand("fanning", paras);
+//            }
+
         });
         swKitchenLight.setOnCheckedChangeListener((buttonView, isChecked) -> {
             Log.i(TAG, "onCheckedChanged: swKitchenLight-->" + isChecked);
-            if (!sw_kitchenLight_isOpen){
+            if (isChecked) {
                 sw_kitchenLight_isOpen = true;
                 Map<String, String> paras = new HashMap<>();
                 paras.put("open", "O");
                 mPresenter.postCommand("lighting_kitchen", paras);
-            }else {
+            } else {
                 sw_kitchenLight_isOpen = false;
                 Map<String, String> paras = new HashMap<>();
                 paras.put("open", "C");
                 mPresenter.postCommand("lighting_kitchen", paras);
             }
+
+//            if (!sw_kitchenLight_isOpen){
+//                sw_kitchenLight_isOpen = true;
+//                Map<String, String> paras = new HashMap<>();
+//                paras.put("open", "O");
+//                mPresenter.postCommand("lighting_kitchen", paras);
+//            }else {
+//                sw_kitchenLight_isOpen = false;
+//                Map<String, String> paras = new HashMap<>();
+//                paras.put("open", "C");
+//                mPresenter.postCommand("lighting_kitchen", paras);
+//            }
+
         });
+
         swBathroomLight.setOnCheckedChangeListener((buttonView, isChecked) -> {
             Log.i(TAG, "onCheckedChanged: swBathroomLight-->" + isChecked);
-            if (!sw_bathroomLight_isOpen){
+            if (!sw_bathroomLight_isOpen) {
                 sw_bathroomLight_isOpen = true;
                 //开启浴室灯光
-            }else {
+            } else {
                 sw_bathroomLight_isOpen = false;
                 //关闭浴室灯光
             }
@@ -153,5 +184,25 @@ public class KitchenFragment extends BaseFragment implements SmartHomeContract.V
     @Override
     public void setPresenter(SmartHomeContract.Presenter presenter) {
         mPresenter = presenter;
+    }
+
+    @OnClick(R.id.btn_house_device_edit)
+    public void onViewClicked() {
+        if (sw_bathroomfan_isOpen) {
+            Toast.makeText(getActivity(), "关闭抽风机", Toast.LENGTH_SHORT).show();
+            Map<String, String> paras = new HashMap<>();
+            paras.put("fan", "C");
+            mPresenter.postCommand("fanning", paras);
+            btnHouseDeviceEdit.setText("打开");
+            sw_bathroomfan_isOpen = false;
+        } else {
+            Toast.makeText(getActivity(), "打开抽风机", Toast.LENGTH_SHORT).show();
+            //开启风扇
+            Map<String, String> paras = new HashMap<>();
+            paras.put("fan", "O");
+            mPresenter.postCommand("fanning", paras);
+            btnHouseDeviceEdit.setText("关闭");
+            sw_bathroomfan_isOpen = true;
+        }
     }
 }

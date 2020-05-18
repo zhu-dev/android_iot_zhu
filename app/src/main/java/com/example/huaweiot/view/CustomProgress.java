@@ -16,6 +16,7 @@ import com.example.huaweiot.base.BaseApplication;
 import com.example.huaweiot.utils.DensityUtil;
 
 public class CustomProgress extends View {
+
     //灰色背景线段的画笔
     private Paint bgPaint;
 
@@ -218,6 +219,7 @@ public class CustomProgress extends View {
         if (currentProgress < paddingLeft) {
             currentProgress = paddingLeft;
         }
+
         //如果当前进度大于宽度-右边距
         else if (currentProgress > width - paddingRight) {
             currentProgress = width - paddingRight;

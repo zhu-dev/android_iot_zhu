@@ -4,13 +4,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.annotation.Nullable;
-import androidx.appcompat.widget.SwitchCompat;
-import androidx.appcompat.widget.Toolbar;
 
 import com.example.huaweiot.R;
 import com.example.huaweiot.api.Beans.HomeData;
@@ -23,7 +18,11 @@ import com.example.huaweiot.view.CustomProgress;
 import java.util.HashMap;
 import java.util.Map;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SwitchCompat;
+import androidx.appcompat.widget.Toolbar;
 import butterknife.BindView;
+import butterknife.OnClick;
 
 public class BedroomFragment extends BaseFragment implements SmartHomeContract.View {
 
@@ -50,11 +49,12 @@ public class BedroomFragment extends BaseFragment implements SmartHomeContract.V
     @BindView(R.id.progress_bedroom_curtain)
     CustomProgress progressBedroomCurtain;
 
+
     private boolean sw_bedroomLight_isOpen = false;
     private boolean sw_bedroomCurtain_isOpen = false;
 
     private SmartHomeContract.Presenter mPresenter;
-    private SmartHomePresenter presenter ;
+    private SmartHomePresenter presenter;
 
     @Override
     protected int setLayoutId() {
@@ -75,35 +75,69 @@ public class BedroomFragment extends BaseFragment implements SmartHomeContract.V
 
         swBathroomLight.setOnCheckedChangeListener((buttonView, isChecked) -> {
             Log.i(TAG, "onCheckedChanged: swBathroomLight ---> " + isChecked);
-            if (!sw_bedroomLight_isOpen){
+
+            if (isChecked) {
                 Toast.makeText(getActivity(), "开启卧室灯光", Toast.LENGTH_SHORT).show();
                 sw_bedroomLight_isOpen = true;
                 Map<String, String> paras = new HashMap<>();
                 paras.put("open", "O");
                 mPresenter.postCommand("lighting_bedroom", paras);
-            }else {
+            } else {
                 Toast.makeText(getActivity(), "关闭卧室灯光", Toast.LENGTH_SHORT).show();
                 sw_bedroomLight_isOpen = false;
                 Map<String, String> paras = new HashMap<>();
                 paras.put("open", "C");
                 mPresenter.postCommand("lighting_bedroom", paras);
             }
+
+//            if (!sw_bedroomLight_isOpen){
+////                Toast.makeText(getActivity(), "开启卧室灯光", Toast.LENGTH_SHORT).show();
+////                sw_bedroomLight_isOpen = true;
+////                Map<String, String> paras = new HashMap<>();
+////                paras.put("open", "O");
+////                mPresenter.postCommand("lighting_bedroom", paras);
+////            }else {
+////                Toast.makeText(getActivity(), "关闭卧室灯光", Toast.LENGTH_SHORT).show();
+////                sw_bedroomLight_isOpen = false;
+////                Map<String, String> paras = new HashMap<>();
+////                paras.put("open", "C");
+////                mPresenter.postCommand("lighting_bedroom", paras);
+////            }
+
+
         });
         swBedroomCurtain.setOnCheckedChangeListener((buttonView, isChecked) -> {
             Log.i(TAG, "onCheckedChanged: swBedroomCurtain ---> " + isChecked);
-            if (!sw_bedroomCurtain_isOpen){
+            if (isChecked) {
+                btnHouseDeviceEdit.setText("关闭");
                 Toast.makeText(getActivity(), "开启卧室窗帘", Toast.LENGTH_SHORT).show();
                 sw_bedroomCurtain_isOpen = true;
                 Map<String, String> paras = new HashMap<>();
                 paras.put("open", "O");
                 mPresenter.postCommand("curtain", paras);
-            }else {
+            } else {
+                btnHouseDeviceEdit.setText("打开");
                 Toast.makeText(getActivity(), "关闭卧室窗帘", Toast.LENGTH_SHORT).show();
                 sw_bedroomCurtain_isOpen = false;
                 Map<String, String> paras = new HashMap<>();
                 paras.put("open", "C");
                 mPresenter.postCommand("curtain", paras);
             }
+
+//            if (!sw_bedroomCurtain_isOpen){
+//                Toast.makeText(getActivity(), "开启卧室窗帘", Toast.LENGTH_SHORT).show();
+//                sw_bedroomCurtain_isOpen = true;
+//                Map<String, String> paras = new HashMap<>();
+//                paras.put("open", "O");
+//                mPresenter.postCommand("curtain", paras);
+//            }else {
+//                Toast.makeText(getActivity(), "关闭卧室窗帘", Toast.LENGTH_SHORT).show();
+//                sw_bedroomCurtain_isOpen = false;
+//                Map<String, String> paras = new HashMap<>();
+//                paras.put("open", "C");
+//                mPresenter.postCommand("curtain", paras);
+//            }
+
         });
 
         progressBedroomLight.setVisibility(View.VISIBLE);
@@ -145,12 +179,12 @@ public class BedroomFragment extends BaseFragment implements SmartHomeContract.V
 
     @Override
     public void showData(HomeData homeData) {
-        if (homeData !=null){
-            Log.d(TAG, "showData: "+homeData.getData().getTemperature());
-            tvInfoTemperatureValue.setText(homeData.getData().getTemperature()+" ℃");
-            tvInfoHumidityValue.setText(homeData.getData().getHumidity()+" %RH");
-            tvInfoSmokeValue.setText(homeData.getData().getSmoke()+" ml/m3");
-        }else {
+        if (homeData != null) {
+            Log.d(TAG, "showData: " + homeData.getData().getTemperature());
+            tvInfoTemperatureValue.setText(homeData.getData().getTemperature() + " ℃");
+            tvInfoHumidityValue.setText(homeData.getData().getHumidity() + " %RH");
+            tvInfoSmokeValue.setText(homeData.getData().getSmoke() + " ml/m3");
+        } else {
             tvInfoTemperatureValue.setText("0 ℃");
             tvInfoHumidityValue.setText("0 %RH");
             tvInfoSmokeValue.setText("0 ml/m3");
@@ -160,5 +194,24 @@ public class BedroomFragment extends BaseFragment implements SmartHomeContract.V
     @Override
     public void setPresenter(SmartHomeContract.Presenter presenter) {
         mPresenter = presenter;
+    }
+
+    @OnClick(R.id.btn_house_device_edit)
+    public void onViewClicked() {
+        if (sw_bedroomCurtain_isOpen){
+            Toast.makeText(getActivity(), "关闭卧室窗帘", Toast.LENGTH_SHORT).show();
+            Map<String, String> paras = new HashMap<>();
+            paras.put("open", "C");
+            mPresenter.postCommand("curtain", paras);
+            btnHouseDeviceEdit.setText("打开");
+            sw_bedroomCurtain_isOpen = false;
+        }else{
+            Toast.makeText(getActivity(), "开启卧室窗帘", Toast.LENGTH_SHORT).show();
+            Map<String, String> paras = new HashMap<>();
+            paras.put("open", "O");
+            mPresenter.postCommand("curtain", paras);
+            btnHouseDeviceEdit.setText("关闭");
+            sw_bedroomCurtain_isOpen = true;
+        }
     }
 }

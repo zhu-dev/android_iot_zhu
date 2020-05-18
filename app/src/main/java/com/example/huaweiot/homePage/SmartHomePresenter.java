@@ -45,36 +45,28 @@ public class SmartHomePresenter implements SmartHomeContract.Presenter {
         RetrofitManager.getInstance().postCommands(RequestBodyUtil.getRequestBody(method, paras))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Consumer<CommandResponse>() {
-                    @Override
-                    public void accept(CommandResponse commandResponse) throws Exception {
-                        switch (commandResponse.getStatus()) {
-                            case 201:
-                                Log.d(TAG, "status:" + commandResponse
-                                        .getData().getStatus() + " method:" + commandResponse
-                                        .getData().getMethod() + " paras:" + commandResponse
-                                        .getData().getParas());
-                                break;
-                            case 200:
-                                Log.d(TAG, "accept: data:" + commandResponse.getMessage());
-                                break;
-                            case 101:
-                                Log.d(TAG, "accept: data:" + commandResponse.getMessage());
-                                break;
-                            case 102:
-                                Log.d(TAG, "accept: data:" + commandResponse.getMessage());
-                                break;
-                            case 103:
-                                Log.d(TAG, "accept: data:" + commandResponse.getMessage());
-                                break;
-                        }
+                .subscribe(commandResponse -> {
+                    switch (commandResponse.getStatus()) {
+                        case 201:
+                            Log.d(TAG, "status:" + commandResponse
+                                    .getData().getStatus() + " method:" + commandResponse
+                                    .getData().getMethod() + " paras:" + commandResponse
+                                    .getData().getParas());
+                            break;
+                        case 200:
+                            Log.d(TAG, "accept: data:" + commandResponse.getMessage());
+                            break;
+                        case 101:
+                            Log.d(TAG, "accept: data:" + commandResponse.getMessage());
+                            break;
+                        case 102:
+                            Log.d(TAG, "accept: data:" + commandResponse.getMessage());
+                            break;
+                        case 103:
+                            Log.d(TAG, "accept: data:" + commandResponse.getMessage());
+                            break;
                     }
-                }, new Consumer<Throwable>() {
-                    @Override
-                    public void accept(Throwable throwable) throws Exception {
-                        Log.d(TAG, throwable.getMessage());
-                    }
-                });
+                }, throwable -> Log.d(TAG, throwable.getMessage()));
 
     }
 
