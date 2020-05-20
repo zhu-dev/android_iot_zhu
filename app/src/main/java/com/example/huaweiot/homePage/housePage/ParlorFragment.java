@@ -173,6 +173,7 @@ public class ParlorFragment extends BaseFragment implements SmartHomeContract.Vi
                 paras.put("temperature", "26");
                 paras.put("wind_speed", "A");
                 mPresenter.postCommand("aircondition", paras);
+                btnHouseDeviceEdit.setText("设定");
             } else {
                 sw_airCondition_isOpen = false;
                 Toast.makeText(getActivity(), "关闭客厅空调", Toast.LENGTH_SHORT).show();
@@ -182,6 +183,7 @@ public class ParlorFragment extends BaseFragment implements SmartHomeContract.Vi
                 paras.put("temperature", "26");
                 paras.put("wind_speed", "A");
                 mPresenter.postCommand("aircondition", paras);
+                btnHouseDeviceEdit.setText("已关");
             }
         });
 
@@ -215,6 +217,7 @@ public class ParlorFragment extends BaseFragment implements SmartHomeContract.Vi
             Log.i(TAG, "onEditorAction: ----input number:" + etSetTemperature.getText().toString());
 
             temperatureInput = etSetTemperature.getText().toString();
+            btnHouseDeviceEdit.setText(temperatureInput);
             //true：按回车键后获取数据，并不能再做其他操作
             //false: 按下回车键还能做其他的操作
             return true;
